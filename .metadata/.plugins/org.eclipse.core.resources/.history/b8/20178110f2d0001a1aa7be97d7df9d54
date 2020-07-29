@@ -1,0 +1,10 @@
+
+public class Principal {
+
+	public static void main(String[] args) {
+		Calculadora c = new Calculadora(0, 0, 0);
+		c.Dividir();
+		System.out.println(c.Dividir());
+	}
+
+}

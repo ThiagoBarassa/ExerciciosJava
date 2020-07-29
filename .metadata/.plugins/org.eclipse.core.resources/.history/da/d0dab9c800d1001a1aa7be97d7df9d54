@@ -1,0 +1,174 @@
+import java.awt.*;
+import java.awt.event.ActionEvent;
+
+import javax.swing.*;
+
+public class Tela extends JFrame {
+	private static final long serialVersionUID = 1L;
+	
+	Calculadora c = new Calculadora();
+	
+	
+	private JPanel jContentPane = null;
+	
+	private JLabel lblNum1 = null;
+	private JLabel lblNum2 = null;
+	private JLabel lblResult = null;
+	
+	private JTextField txtNum1 = null;
+	private JTextField txtNum2 = null;
+	private JTextField txtResult = null;
+	
+	private JButton btnSomar = null;
+	private JButton btnSubtrair = null;
+	private JButton btnMultiplicar = null;
+	private JButton btnDividir = null;
+	
+	public Tela() {
+		super();
+		Initialize();
+	}
+	
+	private void Initialize() {
+		this.setSize(500,500);
+		this.setContentPane(getJContentPane());
+		this.setLocationRelativeTo(null);
+		this.setTitle("Calculadora");
+		
+	}
+	
+	private JPanel getJContentPane() {
+		if(jContentPane == null) {
+			lblNum1 = new JLabel();
+			lblNum1.setBounds(new Rectangle(10,10,150,22));
+			lblNum1.setName("lblNum1");
+			lblNum1.setText("Primeiro numero");
+		}
+		if(jContentPane == null) {
+			lblNum2 = new JLabel();
+			lblNum2.setBounds(new Rectangle(10,60,150,22));
+			lblNum2.setName("lblNum2");
+			lblNum2.setText("Segundo numero");
+		}
+		if(jContentPane == null) {
+			lblResult = new JLabel();
+			lblResult.setBounds(new Rectangle(10,110,150,22));
+			lblResult.setName("lblNum1");
+			lblResult.setText("Resultado");
+		}
+		
+		jContentPane = new JPanel();
+		jContentPane.setLayout(null);
+		
+		jContentPane.add(lblNum1);
+		jContentPane.add(lblNum2);
+		jContentPane.add(lblResult);
+		jContentPane.add(getTxtNum1());
+		jContentPane.add(getTxtNum2());
+		jContentPane.add(getTxtResult());
+		
+		jContentPane.add(getBtnSomar());
+		jContentPane.add(getBtnDividir());
+		jContentPane.add(getBtnSubtrair());
+		jContentPane.add(getBtnMultiplicar());
+		
+		
+	return jContentPane;
+	}
+	
+	private JTextField getTxtNum1() {
+		if(txtNum1 == null) {
+			txtNum1 = new JTextField();
+			txtNum1.setBounds(new Rectangle(160, 10, 150, 22));
+			txtNum1.setName("txtNum1");
+		}
+		return txtNum1;
+	}
+	private JTextField getTxtNum2() {
+		if(txtNum2 == null) {
+			txtNum2 = new JTextField();
+			txtNum2.setBounds(new Rectangle(160, 60, 150, 22));
+			txtNum2.setName("txtNum2");
+		}
+		return txtNum2;
+	}
+	private JTextField getTxtResult() {
+		if(txtResult == null) {
+			txtResult = new JTextField();
+			txtResult.setBounds(new Rectangle(160, 110, 150, 22));
+			txtResult.setName("txtResult");
+		}
+		return txtResult;
+	}
+	private JButton getBtnSomar() {
+		if(btnSomar == null) {
+			btnSomar = new JButton();
+			btnSomar.setBounds(new Rectangle(10, 240, 100, 25));
+			btnSomar.setName("btnSomar");
+			btnSomar.setText("Somar");
+			btnSomar.addActionListener(new java.awt.event.ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					c.setNum1(Double.parseDouble(txtNum1.getText()));
+					c.setNum2(Double.parseDouble(txtNum2.getText()));
+					c.setResult(Double.parseDouble(txtResult.getText()));
+					
+						c.Somar();
+								
+			});
+		}
+		
+		
+		return btnSomar;
+	}
+	private JButton getBtnSubtrair() {
+		if(btnSubtrair == null) {
+			btnSubtrair = new JButton();
+			btnSubtrair.setBounds(new Rectangle(50, 240, 100, 25));
+			btnSubtrair.setName("btnSubtrair");
+			btnSubtrair.setText("Subtrairr");
+			btnSubtrair.addActionListener(new java.awt.event.ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					c.Subtrair();
+				}
+			});
+		}
+		return btnSubtrair;
+	}
+	private JButton getBtnDividir() {
+		if(btnDividir == null) {
+			btnDividir = new JButton();
+			btnDividir.setBounds(new Rectangle(90, 240, 100, 25));
+			btnDividir.setName("btnSomar");
+			btnDividir.setText("Dividir");
+			btnDividir.addActionListener(new java.awt.event.ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					c.Dividir();
+				}
+			});
+		}
+		return btnDividir;
+	}
+	private JButton getBtnMultiplicar() {
+		if(btnMultiplicar == null) {
+			btnMultiplicar = new JButton();
+			btnMultiplicar.setBounds(new Rectangle(140, 240, 100, 25));
+			btnMultiplicar.setName("btnMultiplicar");
+			btnMultiplicar.setText("Multiplicar");
+			btnMultiplicar.addActionListener(new java.awt.event.ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					c.Multiplicar();
+				}
+			});
+		}
+		return btnMultiplicar;
+	}
+
+}

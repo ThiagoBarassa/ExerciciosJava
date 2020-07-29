@@ -1,0 +1,61 @@
+import java.awt.*;
+import java.awt.event.ActionEvent;
+
+import javax.swing.*;
+
+public class Tela extends JFrame {
+	public static final long SerialVersionUID = 1L;
+	
+	Calculadora c = new Calculadora();
+	
+	
+	private JPanel jContentPane = null;
+	
+	private JLabel lblNum1 = null;
+	private JLabel lblNum2 = null;
+	private JLabel lblResult = null;
+	
+	private TextField txtNum1 = null;
+	private TextField txtNum2 = null;
+	private TextField txtResult = null;
+	
+	private JButton btnSomar = null;
+	private JButton btnSubtrair = null;
+	private JButton btnMultiplicar = null;
+	private JButton btnDividir = null;
+	
+	public Tela() {
+		super();
+		Initialize();
+	}
+	
+	private void Initialize() {
+		this.setSize(500,500);
+		this.setContentPane(getContentPane());
+		this.setLocationRelativeTo(null);
+		this.setTitle("Calculadora");
+	}
+	
+	private JPanel getJContentPane() {
+		if(jContentPane == null) {
+			lblNum1 = new JLabel();
+			lblNum1.setBounds(new Rectangle(10,10,150,22));
+			lblNum1.setName("lblNum1");
+			lblNum1.setText("Primeiro numero");
+		}
+		if(jContentPane == null) {
+			lblNum2 = new JLabel();
+			lblNum2.setBounds(new Rectangle(10,30,150,22));
+			lblNum2.setName("lblNum2");
+			lblNum2.setText("Segundo numero");
+		}
+		if(jContentPane == null) {
+			lblResult = new JLabel();
+			lblResult.setBounds(new Rectangle(10,50,150,22));
+			lblResult.setName("lblNum1");
+			lblResult.setText("Primeiro numero");
+		}
+	return jContentPane;
+	}
+
+}
