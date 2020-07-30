@@ -194,7 +194,7 @@ public class Tela extends JFrame {
 					txtResult.setText(String.valueOf(c.getResult()));
 					}
 					else {
-						JOptionPane.showMessageDialog(null, "Operação Invalida");
+						JOptionPane.showMessageDialog(null, "Adicione um numero");
 					}
 						
 					}

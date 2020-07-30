@@ -186,17 +186,13 @@ public class Tela extends JFrame {
 						txtNum1.grabFocus();
 						txtNum2.grabFocus();
 					}
-					else if (Double.parseDouble(txtNum2.getText()) != 0) {
+					else {
 					c.setNum1(Double.parseDouble(txtNum1.getText()));
 					c.setNum2(Double.parseDouble(txtNum2.getText()));
 					c.Dividir(c.getNum1(),c.getNum2());
 					
 					txtResult.setText(String.valueOf(c.getResult()));
 					}
-					else {
-						JOptionPane.showMessageDialog(null, "Operação Invalida");
-					}
-						
 					}
 			});
 		}
