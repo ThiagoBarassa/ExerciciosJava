@@ -406,7 +406,6 @@ public class Tela extends JFrame {
 		txtNum2.setText("");
 		txtResult.setText("");
 	}
-	//metodo
 	public static void validaNumero(JTextField txtNum1, JTextField txtNum2) {
 		@SuppressWarnings("unused")
 		long valor;
@@ -423,7 +422,6 @@ public class Tela extends JFrame {
 		}
 		}
 		}
-	//sobrecarga do metodo acima
 	public static void validaNumero(JTextField txtNum1) {
 		@SuppressWarnings("unused")
 		long valor;

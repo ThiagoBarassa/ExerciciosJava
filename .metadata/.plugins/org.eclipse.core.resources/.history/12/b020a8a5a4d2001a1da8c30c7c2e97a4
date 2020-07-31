@@ -126,7 +126,14 @@ public class Tela extends JFrame {
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					validaNumero(txtNum1, txtNum2);
+					@SuppressWarnings("unused")
+					long valor;
+					if (txtNum1.getText().length() != 0 ) {
+						try {
+						valor = Long.parseLong(txtNum1.getText());
+						txtNum1.grabFocus();
+						txtNum2.grabFocus();
+					
 						if(txtNum1.getText().isEmpty() || txtNum2.getText().isEmpty()) {
 						JOptionPane.showMessageDialog(null, "Adicione um numero");
 						txtNum1.grabFocus();
@@ -137,12 +144,19 @@ public class Tela extends JFrame {
 						c.setNum2(Double.parseDouble(txtNum2.getText()));
 						c.Somar(c.getNum1(),c.getNum2());
 						txtResult.setText(String.valueOf(c.getResult()));
-				
+						
+					}
+						}
+					catch (NumberFormatException ex) {
+						JOptionPane.showMessageDialog(null, "Esse Campo só aceita números", "Informação", JOptionPane.INFORMATION_MESSAGE);
+						
+						}
+					}
 				}
-				}
+			
 						
 			});
-			}
+	}
 		
 		return btnSomar;
 	}
@@ -157,7 +171,6 @@ public class Tela extends JFrame {
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					validaNumero(txtNum1, txtNum2);
 					if(txtNum1.getText().isEmpty() || txtNum2.getText().isEmpty()) {
 						JOptionPane.showMessageDialog(null, "Adicione um numero");
 						txtNum1.grabFocus();
@@ -186,7 +199,6 @@ public class Tela extends JFrame {
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					validaNumero(txtNum1, txtNum2);
 					if(txtNum1.getText().isEmpty() || txtNum2.getText().isEmpty()) {
 						JOptionPane.showMessageDialog(null, "Adicione um numero");
 						txtNum1.grabFocus();
@@ -218,7 +230,6 @@ public class Tela extends JFrame {
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					validaNumero(txtNum1, txtNum2);
 					if(txtNum1.getText().isEmpty() || txtNum2.getText().isEmpty()) {
 						JOptionPane.showMessageDialog(null, "Adicione um numero");
 						txtNum1.grabFocus();
@@ -246,7 +257,6 @@ public class Tela extends JFrame {
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					validaNumero(txtNum1);
 					if(txtNum1.getText().isEmpty()) {
 						JOptionPane.showMessageDialog(null, "Adicione um numero");
 						txtNum1.grabFocus();
@@ -272,7 +282,6 @@ public class Tela extends JFrame {
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					validaNumero(txtNum1);
 					if(txtNum1.getText().isEmpty()) {
 						JOptionPane.showMessageDialog(null, "Adicione um numero");
 						txtNum1.grabFocus();
@@ -298,7 +307,6 @@ public class Tela extends JFrame {
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					validaNumero(txtNum1);
 					if(txtNum1.getText().isEmpty()) {
 						JOptionPane.showMessageDialog(null, "Adicione um numero");
 						txtNum1.grabFocus();
@@ -324,7 +332,6 @@ public class Tela extends JFrame {
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					 validaNumero(txtNum1);
 					if(txtNum1.getText().isEmpty()) {
 						JOptionPane.showMessageDialog(null, "Adicione um numero");
 						txtNum1.grabFocus();
@@ -349,7 +356,6 @@ public class Tela extends JFrame {
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					validaNumero(txtNum1, txtNum2);
 					if(txtNum1.getText().isEmpty() || txtNum2.getText().isEmpty()) {
 						JOptionPane.showMessageDialog(null, "Adicione um numero");
 						txtNum1.grabFocus();
@@ -406,38 +412,6 @@ public class Tela extends JFrame {
 		txtNum2.setText("");
 		txtResult.setText("");
 	}
-	//metodo
-	public static void validaNumero(JTextField txtNum1, JTextField txtNum2) {
-		@SuppressWarnings("unused")
-		long valor;
-		if (txtNum1.getText().length() != 0 || txtNum2.getText().length() != 0) {
-		try {
-		valor = Long.parseLong(txtNum1.getText());
-		valor = Long.parseLong(txtNum2.getText());
-		} catch (NumberFormatException ex) {
-		JOptionPane.showMessageDialog(null, "Esse Campo só aceita números", "Informação", JOptionPane.INFORMATION_MESSAGE);
-		txtNum1.grabFocus();
-		txtNum1.setText(""); 
-		txtNum2.grabFocus();
-		txtNum2.setText(""); 
-		}
-		}
-		}
-	//sobrecarga do metodo acima
-	public static void validaNumero(JTextField txtNum1) {
-		@SuppressWarnings("unused")
-		long valor;
-		if (txtNum1.getText().length() != 0) {
-		try {
-		valor = Long.parseLong(txtNum1.getText());
-		} catch (NumberFormatException ex) {
-		JOptionPane.showMessageDialog(null, "Esse Campo só aceita números", "Informação", JOptionPane.INFORMATION_MESSAGE);
-		txtNum1.grabFocus();
-		txtNum1.setText(""); 
-		 
-		}
-		}
-		}
 	
 
 }
